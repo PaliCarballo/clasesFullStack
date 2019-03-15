@@ -1,0 +1,197 @@
+<!-- Documentacion para consultar CSS y JAVA SCRIPT developer.mozilla.org -->
+
+HTML < lenguaje de marcado de hipertexto >
+Es el ADN del sitio. Cómo está creado.
+De caracter informativo.
+Compuesto por ETIQUETAS (me permiten generar un elemento visual en el browser)
+ATRIBUTOS asociados a etiquetas (el atributo es la caracteristica)
+Ej. A una img (etiqueta) se le da un tamaño (atributos)
+Ambas cosas forman un ELEMENTO
+
+Cómo es la sintaxis:
+<h1 align="center"> blabla </h1>
+
+Estructura básica:
+<!DOCTYPE html>
+<html>
+  <!-- en el head va toda la configuracion del documento -->
+  <head>
+    <title>Mi sitio</title>
+  </head>
+  <!-- en el body va el contenido del sitio, lo que se ve -->
+  <body>
+    Hola Mundo
+  </body>
+</html>
+
+
+FORMULARIOS
+Pedazo de sitio web que le permite al usuario ingresar info qe luego sera procesada.
+-registracion
+-loginnn
+-busqueda
+
+Etiqueta <form></form>:
+<form action="idex.html" method="post"></form> <!-- en ACTION se indica el valor de otra pag web donde, al enviar la info del formulario, luego se cargara la url q se indique aqui -->
+
+Generalmente en cada pag se encuentran mas de un form
+
+Campos:
+<label> le indica al usuario qué es lo que va a llenar (nombre y apelldio, fecha de nacimiento, etc)
+<input> genera el campo para q el usuario llene la info (campo de texto, llenar email, contraseña, boton enviar)
+
+Ej.
+<form action="index.html">
+    <p>
+        <label for="nombre"><!-- en for se completa con el nombre del LABel creado -->
+            Nombre:
+        </label>
+        <input id="nombre" type="text" name="nombre" value="ingrese su nombre" required> <!-- el ID del input debe ser el mismo que el FOR del label, el TYPE varia segun el campo que queramos llenar (text, password, email, submit) NAME se llena con el mismo atributo de ID, VALUE le da un valor por defecto a lo que queramos que aparezca completo desde el principio, PLACEHOLDER es una ayuda para el usuario antes de completar el campo ("ingrese su nombre aqui)
+        REQUIRED hace que este campo sea obligatorio de completar-->
+    </p>
+    <p>
+        <label for="email">
+            Email:
+        </label>
+        <input id="email" type="email">
+    </p>
+    <p>
+        <label for="pass">
+            Contraseña:
+        </label>
+        <input id="pass" type="password">
+    </p>
+    <p>
+        <label for="cine">ya asistio al cine este año?</label>
+        <input type="radio" name="cine" value="s"> Si
+        <br>
+        <input type="radio" name="cine" value="n" checked> No
+        <!-- para que el usuario solo pueda elegir una opcion hay qe poenr el mismo NAME en todos los valores. Es fundamental completar VALUE porque es la info qe viajara al enviarse el form. El atributo CHECKED hace que por default un campo aparezco chequeado  -->
+    </p>
+    <p>
+        <label for="genero">seleccione su genero preferido</label>
+        <br>
+        <input type="checkbox" name="genero" value="d"> drama
+        <br>
+        <input type="checkbox" name="genero" value="c"> comedia
+        <br>
+        <input type="checkbox" name="genero" value="a"> aventura
+        <br>
+        <input type="checkbox" name="genero" value="t"> terror
+    </p>
+    <p>
+        <label for="pais">Pais:</label>
+        <select name="pais" id="pais">
+            <option value="ar">argentina</option>
+            <option value="br">brasil</option>
+            <option value="cl">colombia</option>
+        </select>
+        <!-- la etiqueta SELECT permite generar un menu desplegable de opciones para que el usuario elija -->
+    </p>
+    <p>
+        <label for="comentario">Comentarios</label>
+        <textarea name="" id="comentario" cols="30" rows="10"></textarea>
+        <!-- TEXTAREA tiene etiqueta de cierre, y genera un gran campo de texo para que el usuario escriba -->
+    </p>
+    <p>
+        <input type="submit" value="enviar">
+    </p>
+    <!-- la etiqueta input puede reemplazarse por BUTTON -->
+    <p>
+        <button type="button" name="button"> <!-- hay tres tipos disntios de button, type="button" no hace nada, type="submit" es igual que el input, type="reset" resetea el formulario al hacer click en enviar -->
+            Enviar
+        </button>
+    </p>
+</form>
+
+
+PSEUDO SELECTORES
+Partiendo de un selector que ya hayamos escrito le agramos un selector. En archivo css:
+input:hover {
+    background-color: orange;
+}
+input:foucus {
+    background-color: red;
+}
+<!-- :HOVER es cuando pasas por arriva
+    :FOCUS es cuando ya estas adentro -->
+
+p:nth-child(2) {
+
+}
+<!-- :NTH-CHILD selecciona la segunda linea de texto
+       :NTH-CHILD(ODD) selecciona celdas pares
+       :NTH-CHILD(IDD) selecciona celdas impares -->
+
+ul:first-child {
+  list-style-type: none;
+}
+
+COMO ANIDAR ESTILOS? Usando un selector de herencia, aplico un selector PADRE
+ul:first:child a {
+  text-decoration: none;
+}
+
+
+ETIQUETAS SEMANTICAS
+section > article <!-- los articulos estan dentro de las secciones -->
+header <!-- la cabecera de mi sitio -->
+footer <!-- pie de pagina -->
+ETIQUETAS NO SEMANTICAS
+div <!-- cajas contenedoras de cosas -->
+span <!-- cosas dentro de texto -->
+pre <!-- texto preformateado, cada cosa que yo escribo se va a ver en el navegador -->
+
+
+MODELO DE CAJA
+display:
+block <!-- por defecto no permite un elemento al lado de otro, las propiedades q mas usa con margin y padding -->
+inline <!-- "tipo texto" se puede ubicar un elemento al lado de otro pero no permite margenes ni relleno -->
+inline-block <!-- comparte propiedades de bloque y tmb de linea -->
+none <!-- hago q no se vea, oculto el elemento -->
+flex <!-- FLEXBOX al contenedor padre le damos
+          display: flex, o inline-flex
+          flex-wrap: wrap (pa que lo envuelva)
+          flex-direction: row (filas) o column (los ubica en una columna, tipo Mobile
+                          row-reverse (los ubica en el orden inverso)
+          justify-content: center (todo lo que contenga se va a centrar dependiendo su contneido)
+                           space-between (deja exactamente el mismo espacio entre cada elemento) tiene q tener aplicada la propiedad flex-wrap: wrap
+                           space-around (deja espacio entre los elementos de la fila y en los margenes)
+          align-items: flex-strecth (ocupan todo el alto del contenedor)
+                       flex-start (centrado top)
+                       flex-end (centrado top)
+                       center (los centra verticalmente)
+          flex-flow: column wrap (flex-direction & flex-wrap);
+                     -->
+
+POSICIONAMIENTO POR FLOTACION
+float: left
+
+el elemento que le sigue debe tener
+clear: both;
+
+el elemento padre debe tener
+overflow: hidden; <!-- porque si no el contenedor no me contiene al hijo que flota -->
+
+
+MEDIDAS RELATIVAS
+% <!-- se usa para anchos, siempre es con respecto al padre -->
+vh & vw <!-- medidas que se adaptan al viewport, generalmente para img de la home que se adaptan al height -->
+em <!-- para q las typo se escalen solas, hay q establecer un font-size fijo para el body, eso se establece como 1em -->
+
+
+BACKGROUND
+background-position: center;
+<!--cuando achicamos la ventana para que la img se escale hacia el centro -->
+background-attachment: fixed;
+<!-- para que la background-image quede fija -->
+
+
+MEDIA QUERYS
+Para Mobile first
+@media (min-width: 460px)
+
+Para Mobile Last
+@media (max-width: 768px)
+
+y definimos la orientacion ()and (orientacion:portrait)

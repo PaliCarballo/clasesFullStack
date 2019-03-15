@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #fff;
+}
+body {
+  background-image: url(../img/bg-2.png);
+}
+a {
+  text-decoration: none;
+}
+.contenedor {
+  width: 960px;
+  margin: 0 auto;
+}
+header {
+  position: fixed;
+  top: 5px;
+  width: 960px;
+  z-index: 30;
+}
+header ul {
+  background-color: red;
+  padding: 15px 0;
+  position: relative;
+  top: 40px;
+}
+header li {
+  display: inline;
+  padding: 0 10px;
+}
+.logo {
+  float: left;
+  position: relative;
+  top: 10px;
+  z-index: 20;
+}
+.limpieza {
+  clear: both;
+  margin: 0 auto;
+}
+main {
+  margin: 140px auto;
+  background-color: #fff;
+  padding: 15px;
+  overflow: hidden;
+}
+.producto {
+  background-image: url(../img/img-phone-01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 300px;
+  position: relative;
+  text-align: center;
+  padding: 80px 0 25px 0;
+  margin: 0 15px 15px 0;
+  float: left;
+}
+.producto:nth-child(3n) {
+  margin-right: 0;
+}
+.banderita {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+h1 {
+  font-size: 16px;
+  font-style: italic;
+  font-variant: thin;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 0;
+}
+main a {
+  background-color: red;
+  padding: 10px;
+  margin: 20px auto;
+  display: block;
+  width: 100px;
+  border-radius: 10px;
+}
+main a:hover {
+  background-color: #B40827;
+}
+
+
+/* Medias para tablet */
+@media (max-width: 960px) {
+  .producto {
+    width: 49%;
+  }
+}
+
+/* Medias para celular */
+@media (max-width: 425px) {
+  .producto {
+    width: 100%;
+  }
+}

@@ -1,0 +1,67 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+.fondo-azul {
+  background-color: #2C3E50;
+}
+
+header {
+  background-color: #18BC9C;
+}
+
+nav {
+  background-color: #2C3E50;
+}
+.navbar-light .navbar-brand {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+.navbar-light .navbar-toggler {
+  background-color: #18BC9C;
+  color: #fff;
+  border-color: rgba(0,0,0,.0);
+  margin: 5px 0;
+}
+.navbar-toggler-icon {
+  color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #fff!important;
+}
+.portada {
+  text-align: center;
+  padding: 50px 0;
+  color: #fff;
+}
+.portada h1 {
+  padding: 20px 0 0 0;
+}
+.portada ion-icon {
+  font-size: 30px;
+}
+
+section {
+  padding: 80px 0;
+  text-align: center;
+}
+.imagenes img {
+  width: 100%;
+}
+.fondo-blanco {
+  color: #2C3E50;
+}
+.fondo-blanco ion-icon {
+  font-size: 30px;
+}
+.fondo-verde {
+  background-color: #18BC9C;
+  color: #fff;
+}
