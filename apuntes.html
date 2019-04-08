@@ -24,6 +24,47 @@ Estructura básica:
   </body>
 </html>
 
+RUTAS
+1) Absolutas <!-- Ruta completa -->
+
+Etiqueta <a></a> HIPERVINCULO & <img> IMAGEN
+    <a href="cualquier.url">
+        Link a google <!-- es lo que ve el usuario -->
+    </a>
+    <img src="ulr.demiimagen" alt="descripcion de la img"> <!-- la etiqueta no cierra y en el css recibe atributos de ancho y alto -->
+    
+    
+2) Relativa <!-- Si estoy cerquita, pueden ser internas (href= #seccionContacto / id= "contacto" ) -->
+    <a href="ruta del archivo que esta al lado del actual">
+        Vamos a Contacto
+    </a>
+    <img src="img/archivo.jpg" alt=""> <!-- ../ antes de la url indica q salis un nivel -->
+    
+también hay rutas de audio y video
+    <audio src="la ruta puede ser absoluta o relativa"></audio>
+    <video src="iden audio"></video>    
+    
+    <!-- atributos -->
+    controls : muestra los controles estándar de HTML5 para audio en una página web.
+    autoplay : hace que el audio se reproduzca automáticamente.
+    loop : hace que el audio se repita automáticamente.
+
+ETIQUETA IFRAME
+Inserta en nuestra web contenido de otros sitios web, en un recuadro prediseñado.
+<iframe src="aca va una ruta absoluta" frameborder="0"></iframe>
+
+CSS Y FONDOS
+background-color: red / #123456 / rgb (red, green, blue);
+opasity: 0.5 <!-- valor entre 0 y 1 --> / rgba (red, green, blue, opasity);
+background-image: url ("ruta de la img");
+backgrpund-size: cover <!-- para que cubra toda la pantalla -->
+heigh: 100%vh; <!-- el alto de viewport -->
+background-repeat: no repeat / repeat-y / repeat-x;
+background-position: center;
+<!--cuando achicamos la ventana para que la img se escale hacia el centro -->
+background-attachment: fixed;
+<!-- para que la background-image quede fija -->
+
 
 FORMULARIOS
 Pedazo de sitio web que le permite al usuario ingresar info qe luego sera procesada.
@@ -133,7 +174,12 @@ ul:first:child a {
 }
 
 
-ETIQUETAS SEMANTICAS
+ETIQUETAS SEMANTICAS <!-- importantes para el buscador de Google -->
+<h1></h1> <!-- titulo del sitio -->
+<p><em></em><strong></strong></p> <!-- cursiva o negrita dato adicional para el buscador de google -->
+<mark></mark> <!-- modo resaltador -->
+<cite></cite> <!-- pone el texto como una "cita" -->
+<abbr title="escribimos lo que significa una abreviatura"></abbr> <!-- al pasar por arribaa con el cursor dice el significado de la abreviatura-->
 section > article <!-- los articulos estan dentro de las secciones -->
 header <!-- la cabecera de mi sitio -->
 footer <!-- pie de pagina -->
@@ -180,11 +226,7 @@ vh & vw <!-- medidas que se adaptan al viewport, generalmente para img de la hom
 em <!-- para q las typo se escalen solas, hay q establecer un font-size fijo para el body, eso se establece como 1em -->
 
 
-BACKGROUND
-background-position: center;
-<!--cuando achicamos la ventana para que la img se escale hacia el centro -->
-background-attachment: fixed;
-<!-- para que la background-image quede fija -->
+
 
 
 MEDIA QUERYS
