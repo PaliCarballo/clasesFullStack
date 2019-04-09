@@ -1,5 +1,6 @@
 <?php
 //PHP admite código HTML asique de ahora en más todos los archivos son .php
+// es un lenguaje que se ejecuta del lado del servido, el cliente (buscadores) no lo lee
 
 Etiqueta de apertura
 <?php
@@ -20,7 +21,10 @@ Etiqueta de apertura
   </body>
 </html>
 
-VARIABLES
+<?php 
+
+VARIABLES // es el nombre que se le da a un espacio reservado en memoria que es como una caja donde se pueden guardar cosas
+
 $nombrevariable = "unValorAsignado"
 
 = // Asignación
@@ -29,9 +33,9 @@ $nombrevariable = "unValorAsignado"
 
 STRING // caracteres
 INTEGER // numeros positivos o negativos
-FLOAT // numeros con decimales
+FLOAT // numeros con decimales, se escriben con . no ,
 BOOLEAN // true or false
-NULL // Variables sin valor Ej: $valor = "nule"
+NULL // Variables sin valor Ej: $valor = "null"
 
 OPERADORES NUMERICOS // + - * / % es el resto ** potencia
 STRING CONCATENACION // .
@@ -40,13 +44,17 @@ PARA IMPRIMIR STRING
   echo "Hola Mundo";
   echo $nombre;
   echo ($nombre); // cuestion de orden tipo cuenta matematica;
-  echo "<h1>Imprimo en Html</h1>"
+  echo "<h1>Imprimo en Html</h1>";
 
-  var_dump("escribo la variable que quiero investigar"); // puede ser cualqueir valor Array, Boolean, String, Etc
+  var_dump("escribo la variable que quiero investigar"); // puede ser cualqueir valor Array, Boolean, String, Etc y en el navegador veo todo lo que contiene
   print_r
 
   echo "Me llamo" . $nombre . "" . $apellido;
-  echo "Me llamo $nombre $apellido";
+  echo "Me llamo <a>$nombre $apellido</a>";
+    // aunque es mejor
+  echo "<p>Me llamo {$nombre} {$apellido}</p>";
+
+
 
 VALORES QUE INDICAN QUE ES FALSO // los datos que no tienen contenido son falsos
 false
@@ -57,66 +65,139 @@ NULL
 []
 
 VALORES QUE INDICAN QUE ES VERDADERO // cualquier dato que tenga contenido
-eio_truncate
+true
 1
 "1"
 Cualquier dato con contenido
+    
+OPERADORES PARA VALIDAR ESOS DATOS
+    COMPARACION
+    ==
+    !=
+    <
+    >
+    <=
+    >=
+
+    ANIDACION DE CONDICIONALES
+    || // o
+    && // y
+    ! //negacion
 
 CONDICIONALES
-$variable = 7;
-if ($variable >= 18) {
-  echo "es mayor";
-} else {
-  echo "es menor";//  no hace falta poner else
-}
+    $variable = 7;
+    if ($variable >= 18) {
+      echo "es mayor";
+    } else {
+      echo "es menor";//  no hace falta poner else
+    }
 
-IF TERNARIOS
-echo $edad >= 18? "es mayor" : "es menor";
-o
-$respuesta = $edad >= 18? "es mayor" : "es menor"; // estoy almacenando el resultado en una nueva variable
+IF TERNARIOS O IF CORTO // Es un operador que devuelve un valor
+condicion ? true : false;    
 
-COMPARACION
-==
-!=
-<
->
-<=
->=
+    echo $edad >= 18? "es mayor" : "es menor";
+    o
+    $respuesta = $edad >= 18? "es mayor" : "es menor"; // estoy almacenando el resultado en una nueva variable
 
-ANIDACION DE CONDICIONALES
-|| // o
-&& // y
-! //negacion
+condicion ?? false; // devuelve el mismo valor o el falso
 
 
-ARRAYS bucles
-$alumnos = [
-  "mejor alumno" => "Juancito",
-  "peor alumno" => "Javier",
-  "el que llega tarde" => "Pedrito"
-];
+BUCLES // bloques de codigo que vamos a repetir
 
-echo "El mejor alumno es" . $alumnos["mejor alumno"];
+1) FOR // Repetitiva exacta, algo que se repite una cantidad exacta de veces
+    
+    for (inicio; condicion; paso) {
+        condicion a ejecutar
+    }
+    
+    INICIO = donde iniciamos la variable, se ejecuta SOLO una vez al principio // $i=0
+    CONDICION = el codigo se va a repetir siempre y cuando esta condicion de true, cuando da false se termina el for
+    PASO = modificar la variable del inicio, generalmente incrementa + 1, para que en algun momento de false y no caigamos en un bucle infinito // $i++
+        
+    for($i=0; $i<10; $i++){
+        echo $i;
+    }
 
-//foreach - nos da la ventaja de tomar un valor asosiativo con un key y un valor -
-foreach ($alumnos as $key => $value) { //generalmente va del plural al singular (&alumnos as $alumno), sin $key
-  echo "el alumno en posicion" . $key." es ".$value."<br>";
-}
+Nos sirve para recorrer un ARRAY // si en la CONDICION ponemos count($laVariable) ese numero se reemplaza por la cantidad de elementos que hay en el array
+    $colores= ["rojo", "verde", "amarillo"];
+    for ($i=0; $i < count($colores); $i++) {
+        echo $colores[$i] . "<br>";
+    }
 
-//do while - mientras sea verdadero segui , la condicion puede ser cualquier cosa, como en el while -
-$i = 0
-do {
-  if($i == 2){
-  brake;
-  }
-  echo "hola";
-  $i++;
-} while ($i < 3); //while - mientras se verdadero se repite -
+2) REPETITIVAS INEXACTAS // Cuando no sabemos cuantas veces se tiene que ejecutar
+   WHILE // se va a seguir ejecutando mientras la condicion sea verdadera
+    while (condicion) {
+        aca va la que se quiere ejecutar // tenemos que asegurarnos de que la condicino q se ejecuta cambie y de false porque si no caemos en un BUCLE INFINITO
+    }
 
-//for - mientras sea verdadero, tengo un inicio, una condicion y unos pasos a seguir -
-for ($i=27; $i >= 12 ; $i=$i-2) {
-  echo $i. "<br>";
-}
+Ej para recorrer un Array hasta que pase algo        
+    $palabras = ["Hola", "que", "tal", "soy", "Pepe", "BASTA"];
+    shuffle($palabras); // shuffle mezcla las palabras
+    
+    $i=0; //iniciamos en el primer valor del array
+    while($palabras[$i] != "BASTA") { // mientras las palabras sean distintas a BASTA
+        echo $palabras[$i]; // imprimime i
+        $i++; // e incrementalo de a uno
+    }
+
+Pero hay veces que queremos ejecutar el codigo AL MENOS UNA VEZ
+    DO WHILE
+    do { // primero ejecuta este pedazo de codigo
+       echo $palabras[$i];
+       $i++;
+    } while ($palabras[$i] != "BASTA"); // recien cuando llega a esta linea pregunta si esta condicion es true
+    
+
+KEYWORDS // Palabras que modifican el comportamiento de un bucle
+    continue // saltea el paso del codigo en donde se coloca
+        
+        for($i=0; $i < ; $i++) {
+            if ($i == 3) {
+                continue;
+            }
+        }
+        echo "FIN";
+
+    break // termina el bucle pero sigue leyendo el codigo que hay despues, se lee el FIN
+    exit // corta todo el php, no se ejecuta nada mas
+    return // se utiliza en funciones, la funcion termina la ejecucion de la funcion
+
+        
+3) FOREACH  // Sirve para recorrer un array asociativo
+        foreach ($array as $valor) { // la segunda variable debe ser nueva
+            echo $valor;
+        }
+
+Ej:     $persona = [
+            "nombre" => "Dario",
+            "apellido" => "Sus",
+            "edad" => 87
+        ];
+
+        foreach($persona as $valor) {
+            echo "$valor <br>";
+        }
+    
+    
+        //foreach - nos da la ventaja de tomar un valor asosiativo con un key y un valor -
+    
+        $alumnos = [
+          "mejor alumno" => "Juancito",
+          "peor alumno" => "Javier",
+          "el que llega tarde" => "Pedrito"
+        ];
+
+        echo "El mejor alumno es" . $alumnos["mejor alumno"];
+
+        
+        foreach ($alumnos as $key => $value) { //generalmente va del plural al singular (&alumnos as $alumno), sin $key
+          echo "el alumno en posicion" . $key." es ".$value."<br>";
+        }
+
+
+
+
+ 
 
 
 FUNCIONES //las reconocemos por los parentesis
@@ -148,9 +229,9 @@ debug // vemos los errores
   var_dump //veo en el navegador los detalles
   exit //corta la ejecucion. Hago var_dump de tal linea y la siguiente corto la ejecucion
 
-?>
 
-QUERYSTRING - son arrays asociativos
+
+QUERYSTRING - son arrays asociativos // SUPERGLOBALES
 
 href=noticias.php?rubro=".rubro.">
 
@@ -160,6 +241,38 @@ href=noticias.php?rubro=".rubro.">
 ? indice1 =valor1 & indice2 = valor2 ...
 
 ? --> $_POST // es privado, se usa en formularios, campos de textos, registro, lugares donde quiero mandar la info pero no quiero q sea visible para el usuario. Envia oculto, mas seguridad. SE USA PARA GUARDAR,LOGUERANOS, ACTUALIZAR (info sensible)
+
+$_COOKIE // es info que envia el servidor al cliente con info que necesita quedar guardad en la pc del usuario, se almacena en archivos de texto, no mas de 4kb. Cada navegador tiene sus cookies.
+    $cookie_name ="nombre";
+    $cookie_value="Juan";
+    setcookie($cookie_name, $cookie_value); // setcookie define una cookie y la almacena en el disco duro del usuario y luego es accedida mediante $_COOKIE
+
+    Lectura:
+    echo '¡Hola' . $COOKIE["nombre"] . '!';
+    ¡Hola Juan!
+
+    // tiempo de expiracion
+        $expira = time()+3600; //1 hora, si enviamos tiempo negativo la cookie se elimina Ej. time() - 1
+        setcookie("usuario", "pepe", $expira);
+    
+    // para preguntar si existe una cookie
+        if (isset($_COOKIE['usuario'])) {
+            echo "Bienvenido" . $_COOKIE['usuario'];
+        }
+
+
+&_SESSION // una sesion es una forma de guarda info en un servidor, sus valores son unicos para cada usuario
+    session_start();
+
+    $_SESSION["color"] = "verde";
+    $_SESSIOM["animal"] = "gato";
+    echo "Variables de sesion guardadas";
+
+    echo $_SESSION["color"];
+
+
+
+
 
 
 
