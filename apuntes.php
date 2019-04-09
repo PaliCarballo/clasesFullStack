@@ -21,7 +21,7 @@ Etiqueta de apertura
   </body>
 </html>
 
-<?php 
+<?php
 
 VARIABLES // es el nombre que se le da a un espacio reservado en memoria que es como una caja donde se pueden guardar cosas
 
@@ -69,7 +69,7 @@ true
 1
 "1"
 Cualquier dato con contenido
-    
+
 OPERADORES PARA VALIDAR ESOS DATOS
     COMPARACION
     ==
@@ -93,7 +93,7 @@ CONDICIONALES
     }
 
 IF TERNARIOS O IF CORTO // Es un operador que devuelve un valor
-condicion ? true : false;    
+condicion ? true : false;
 
     echo $edad >= 18? "es mayor" : "es menor";
     o
@@ -105,15 +105,15 @@ condicion ?? false; // devuelve el mismo valor o el falso
 BUCLES // bloques de codigo que vamos a repetir
 
 1) FOR // Repetitiva exacta, algo que se repite una cantidad exacta de veces
-    
+
     for (inicio; condicion; paso) {
         condicion a ejecutar
     }
-    
+
     INICIO = donde iniciamos la variable, se ejecuta SOLO una vez al principio // $i=0
     CONDICION = el codigo se va a repetir siempre y cuando esta condicion de true, cuando da false se termina el for
     PASO = modificar la variable del inicio, generalmente incrementa + 1, para que en algun momento de false y no caigamos en un bucle infinito // $i++
-        
+
     for($i=0; $i<10; $i++){
         echo $i;
     }
@@ -130,10 +130,10 @@ Nos sirve para recorrer un ARRAY // si en la CONDICION ponemos count($laVariable
         aca va la que se quiere ejecutar // tenemos que asegurarnos de que la condicino q se ejecuta cambie y de false porque si no caemos en un BUCLE INFINITO
     }
 
-Ej para recorrer un Array hasta que pase algo        
+Ej para recorrer un Array hasta que pase algo
     $palabras = ["Hola", "que", "tal", "soy", "Pepe", "BASTA"];
     shuffle($palabras); // shuffle mezcla las palabras
-    
+
     $i=0; //iniciamos en el primer valor del array
     while($palabras[$i] != "BASTA") { // mientras las palabras sean distintas a BASTA
         echo $palabras[$i]; // imprimime i
@@ -146,11 +146,11 @@ Pero hay veces que queremos ejecutar el codigo AL MENOS UNA VEZ
        echo $palabras[$i];
        $i++;
     } while ($palabras[$i] != "BASTA"); // recien cuando llega a esta linea pregunta si esta condicion es true
-    
+
 
 KEYWORDS // Palabras que modifican el comportamiento de un bucle
     continue // saltea el paso del codigo en donde se coloca
-        
+
         for($i=0; $i < ; $i++) {
             if ($i == 3) {
                 continue;
@@ -162,7 +162,7 @@ KEYWORDS // Palabras que modifican el comportamiento de un bucle
     exit // corta todo el php, no se ejecuta nada mas
     return // se utiliza en funciones, la funcion termina la ejecucion de la funcion
 
-        
+
 3) FOREACH  // Sirve para recorrer un array asociativo
         foreach ($array as $valor) { // la segunda variable debe ser nueva
             echo $valor;
@@ -177,10 +177,10 @@ Ej:     $persona = [
         foreach($persona as $valor) {
             echo "$valor <br>";
         }
-    
-    
+
+
         //foreach - nos da la ventaja de tomar un valor asosiativo con un key y un valor -
-    
+
         $alumnos = [
           "mejor alumno" => "Juancito",
           "peor alumno" => "Javier",
@@ -189,7 +189,7 @@ Ej:     $persona = [
 
         echo "El mejor alumno es" . $alumnos["mejor alumno"];
 
-        
+
         foreach ($alumnos as $key => $value) { //generalmente va del plural al singular (&alumnos as $alumno), sin $key
           echo "el alumno en posicion" . $key." es ".$value."<br>";
         }
@@ -197,7 +197,7 @@ Ej:     $persona = [
 
 
 
- 
+
 
 
 FUNCIONES //las reconocemos por los parentesis
@@ -254,14 +254,14 @@ $_COOKIE // es info que envia el servidor al cliente con info que necesita queda
     // tiempo de expiracion
         $expira = time()+3600; //1 hora, si enviamos tiempo negativo la cookie se elimina Ej. time() - 1
         setcookie("usuario", "pepe", $expira);
-    
+
     // para preguntar si existe una cookie
         if (isset($_COOKIE['usuario'])) {
             echo "Bienvenido" . $_COOKIE['usuario'];
         }
 
 
-&_SESSION // una sesion es una forma de guarda info en un servidor, sus valores son unicos para cada usuario
+$_SESSION // una sesion es una forma de guarda info en un servidor, sus valores son unicos para cada usuario
     session_start();
 
     $_SESSION["color"] = "verde";
