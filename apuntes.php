@@ -273,6 +273,34 @@ $_SESSION // una sesion es una forma de guarda info en un servidor, sus valores 
 
 
 
+OBJETOS
+//
+
+Clases --> Se escriben en Upper  Camel Case // para icluir la clase en el archivo principal se usa require_once('');
+Atributos --> Son variables que adelante se les pone si es public o private //por default es publilc
+    Si son private tengo q pedirselos y el cliente tiene q saber decirmelo a traves de una funcion, voy a realizar alguna validacion:
+    Si quiero que mis hijos tengan acceso uso protected
+    // asi se usa en el archivo
+    $martina->setDni(1234567);
+
+Responsabilidades -->
+    public function setDni($dniEnviado){
+      $this->dni = $dniEnviado;
+    }
+    public function getDni(){
+      if ($_SESSION['usuarioLogueado'] == "Admin") {
+        return $this->dni;
+      } echo "quien sos?";
+    }
+
+
+
+
+
+
+
+
+
 
 
 
