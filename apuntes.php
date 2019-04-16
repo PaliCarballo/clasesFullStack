@@ -293,6 +293,15 @@ Responsabilidades -->
       } echo "quien sos?";
     }
 
+<Interfaces> --> Método abstracto. Es la misma responsabilidad que comparten distintas clases que no heredan los atributos del mismo padre. No le digo COMO si no que implemente la interfaz. Una clase puede heredar de varias interfaces // verbo + able = nadable, volable, comprable, etc
+
+TIENE -----> /* flechita rellena, linea normal */ es un parametro de Atributos
+USA -----> /* flecha rellena, linea punteada */  es un parametro de Responsabilidad
+HERENCIA -----> /* flecha vacia, linea normal */  se le pregunta al hijo si es un/una del padre , si no es una clase
+IMPLEMENTA -----> /* flecha rellena, linea punteada */
+<<ABSTRACTA>>, tine atributos y resposabilidades pero no puede ser instanciar (crear un objeto de esa clase)
+
+
 
 
 
