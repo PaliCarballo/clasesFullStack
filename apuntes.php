@@ -277,7 +277,7 @@ OBJETOS
 //
 
 Clases --> Se escriben en Upper  Camel Case // para icluir la clase en el archivo principal se usa require_once('');
-Atributos --> Son variables que adelante se les pone si es public o private //por default es publilc
+Atributos --> Son variables que adelante se les pone el scoup (alcance) si es public, private o protected //por default es publilc
     Si son private tengo q pedirselos y el cliente tiene q saber decirmelo a traves de una funcion, voy a realizar alguna validacion:
     Si quiero que mis hijos tengan acceso uso protected
     // asi se usa en el archivo
@@ -298,13 +298,28 @@ Responsabilidades -->
 TIENE -----> /* flechita rellena, linea normal */ es un parametro de Atributos
 USA -----> /* flecha rellena, linea punteada */  es un parametro de Responsabilidad
 HERENCIA -----> /* flecha vacia, linea normal */  se le pregunta al hijo si es un/una del padre , si no es una clase
+class Pepito extends Padre
+
 IMPLEMENTA -----> /* flecha rellena, linea punteada */
-<<ABSTRACTA>>, tine atributos y resposabilidades pero no puede ser instanciar (crear un objeto de esa clase)
+class Pepito extends Padre implements Interfaz
+
+<<ABSTRACTA>>, tiene atributos y resposabilidades pero no se puede instanciar (crear un objeto de esa clase)
 
 
+__construct // CONSTRUCTOR class new siempre llama a __construct cuando lo instancias
 
+instanceof // para validar si pertenecea tal clase y puede hacer tal cosa
+if $talClase instanceof Clase {
+  echo Es una clase;
+}
 
+static --> :: // atributos estaticos que me permiten acceder a la clase sin tener que instanciar , porque no es un objeto en particular si no una clase con datos que son comunes 
+  class UnaClase {
+    public static $variable = ["unDato", "otroDato", "otroDato2",];
+  }
+  var_dump UnaClase::$variable[];
 
+  UnaClase::get$variable();
 
 
 
