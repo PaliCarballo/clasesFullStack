@@ -52,5 +52,12 @@ class Curso {
     $this->profesorAdjunto = $profesorAdjunto;
   }
 
+  public fuction getCupoMaximoDeAlumnos(){
+    return $this->cupoMaximo;
+  }
+  public function setCupoMaximoDeAlumnos($cupo){
+    $this->cupo
+  }
+
 }
  ?>

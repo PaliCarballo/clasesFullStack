@@ -7,39 +7,49 @@
 
     public function altaCurso($nombre, $codigoCurso, $cupoMaximoDeAlumnos){
       $nuevoCurso = new Curso;
-      $nuevoCurso->setNombre("Nombre de curso");
-      $nuevoCurso->setCodigoCurso(453);
-      $nuevoCurso->setCupoMaximoDeAlumnos(40);
+      $nuevoCurso->setNombre($nombre);
+      $nuevoCurso->setCodigoCurso($codigoCurso);
+      $nuevoCurso->setCupoMaximoDeAlumnos($cupoMaximoDeAlumnos);
       $this->listaCursos[] = $nuevoCurso;
     }
 
     public function altaProfesorAdjunto($nombre, $apellido, $codigoProfesor, $cantidadDeHoras){
       $nuevoProfeAdjunto = new Adjunto;
-      $nuevoProfeAdjunto->setNombre("Nombre nuevo profe adjunto");
-      $nuevoProfeAdjunto->setApellido("Apellido nuevo profe adjunto");
-      $nuevoProfeAdjunto->setCodigoProfesor(123);
-      $nuevoProfeAdjunto->setCantidadDeHoras(0)
+      $nuevoProfeAdjunto->setNombre($nombre);
+      $nuevoProfeAdjunto->setApellido($apellido);
+      $nuevoProfeAdjunto->setCodigoProfesor($codigoProfesor);
+      $nuevoProfeAdjunto->setCantidadDeHoras($cantidadDeHoras)
       $this->listaProfesores[] = $nuevoProfeAdjunto;
     }
 
     public function altaProfesorTitular($nombre, $apellido, $codigoProfesor, $especialidad){
       $nuevoProfeTitular = new Titular;
-      $nuevoProfeTitular->setNombre("Nombre nuevo profe titular");
-      $nuevoProfeTitular->setApellido("Apellido nuevo profe titular");
-      $nuevoProfeTitular->setCodigoProfesor(124);
-      $nuevoProfeTitular->setEspecialidad('desarrollador');
+      $nuevoProfeTitular->setNombre($nombre);
+      $nuevoProfeTitular->setApellido($apellido);
+      $nuevoProfeTitular->setCodigoProfesor($codigoProfesor);
+      $nuevoProfeTitular->setEspecialidad($especialidad);
       $this->listaProfesores[] = $nuevoProfeTitular;
     }
 
     public function altaAlumno($nombre, $apellido, $codigoAlumno){
-      $nuevoAlumno = new Alumno;
-      $nuevoAlumno->setNombre("Nombre de alumno");
-      $nuevoAlumno->setApellido("Apellido del alumno");
-      $nuevoAlumno->setCodigoAlumno(565);
+      $nuevoAlumno = new Alumno($nombre, $apellido, $codigoAlumno);
       $this->listaAlumnos[] = $nuevoAlumno;
     }
 
     public function inscribirAlumno($codigoAlumno, $codigoCurso){
+        foreach ($this->alumnos as $alumno) {
+          if ($codigoAlumno == $alumno->getCodAlumno()) {
+            // encontre al alumno
+            $alumnoEncontrado = $alumno;
+            break;
+          }
+        }
+        if (!isset$cursoEncontrado) {
+          // code...
+        }
+    }
+
+    public function asignarProfesores($codigoCurso, $codigoProfesorTitular, $codigoProfesorAdjunto){
       
     }
 

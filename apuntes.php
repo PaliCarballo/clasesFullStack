@@ -308,12 +308,13 @@ class Pepito extends Padre implements Interfaz
 
 __construct // CONSTRUCTOR class new siempre llama a __construct cuando lo instancias
 
+
 instanceof // para validar si pertenecea tal clase y puede hacer tal cosa
 if $talClase instanceof Clase {
   echo Es una clase;
 }
 
-static --> :: // atributos estaticos que me permiten acceder a la clase sin tener que instanciar , porque no es un objeto en particular si no una clase con datos que son comunes 
+static --> :: // atributos estaticos que me permiten acceder a la clase sin tener que instanciar , porque no es un objeto en particular si no una clase con datos que son comunes
   class UnaClase {
     public static $variable = ["unDato", "otroDato", "otroDato2",];
   }
@@ -321,7 +322,11 @@ static --> :: // atributos estaticos que me permiten acceder a la clase sin tene
 
   UnaClase::get$variable();
 
-
+CLASES CON trait
+--> tiene RASGOS, atributos y responsabilidades, como si fuera una clase
+--> no se instancia nunca
+--> adentro de una clase se escribe
+    use NombreDelTrait;
 
 
 
