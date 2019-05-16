@@ -336,4 +336,13 @@ CLASES CON trait
 
 
 
+
+
+
+BASE DE DATOS
+1) crear el archivo conexion //copiar de carpeta DBPDO de peliculas hecho por juanca
+2) crear la pagina de formulario // como la pag de index del blog, me redirige a la home
+3) creo el archivo home.php // session_start() , requite('conexion.php'), if POST y prepare del query n execute
+4) 
+
 ?>
