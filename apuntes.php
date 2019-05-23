@@ -344,5 +344,16 @@ BASE DE DATOS
 2) crear la pagina de formulario // como la pag de index del blog, me redirige a la home
 3) creo el archivo home.php // session_start() , requite('conexion.php'), if POST y prepare del query n execute
 4) 
+  
+Que hago en la consola para que funcione LARAVEL cuando me descargo un archivo?
+1) clono o pulleo el archivo de git (pero no me baja la carpeta vendor ni el archivo .env)
+2) Duplico el archivo .env.example y lo renombro como .env
+3) En la consola -> composer install o composer update (me actualiza losarchivos que no tengo)
+4) php artisan key:generate
+5) php artisan serve
+  
+  
+PARA CORRER LAS MIGRACIONES QUE CAMBIE O CREE en laravel
+  php artisan migrate
 
 ?>
