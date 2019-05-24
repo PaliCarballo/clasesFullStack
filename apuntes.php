@@ -350,7 +350,7 @@ Que hago en la consola para que funcione LARAVEL cuando me descargo un archivo?
 2) Duplico el archivo .env.example y lo renombro como .env
 3) En la consola -> composer install o composer update (me actualiza losarchivos que no tengo)
 4) php artisan key:generate
-5) php artisan serve
+5) php artisan serve (se desactiva con ctr C)
   
   
 PARA CORRER LAS MIGRACIONES QUE CAMBIE O CREE en laravel
