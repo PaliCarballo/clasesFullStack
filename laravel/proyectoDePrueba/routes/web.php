@@ -10,6 +10,28 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/peliculas/{titulo}', function($titulo){
+    if(iset($titulo){
+        return view()
+    }
+});
+
+
+
+  // RUTAS CON PARAMETROS
+  Route::get('home/{name}', function($name){
+    return 'Hello' . $name;
+  })
+  // RUTAS CON PARAMETROS OPCIONALES -> El ? dsp de la variable indica q es opcional, podemos ponerle un valor por defecto
+  Route::get('post/{comment_id?'}, function($comment_id = null){
+    if ($comment_id === null){
+      return 'No hay comentarios';
+    } else {
+      return $comment_id;
+    }
+  })
+
+
 
 Route::get('/peliculas', function(){
     echo '<!DOCTYPE html>
